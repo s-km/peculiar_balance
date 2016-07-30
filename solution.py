@@ -1,3 +1,8 @@
+# The runtime of this solution is O((log(n))^2)
+# since to_tern has a runtime of O(log(n))
+# and answer calls it in the worst case O(log(n))
+# times, once for each ternary digit of x.
+
 import math
 
 def to_tern(x):
