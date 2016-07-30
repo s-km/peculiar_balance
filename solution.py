@@ -16,19 +16,15 @@ def to_tern(x):
 def answer(x):
     result = []
     cur_posn = 0
-    while True:
-        tern_list = to_tern(x)
-        if cur_posn >= len(tern_list):
-            break
-        while cur_posn < len(tern_list):
-            if tern_list[cur_posn] == 2:
-                result.append("L")
-                x += math.pow(3, cur_posn)
-                cur_posn += 1
-                break
-            elif tern_list[cur_posn] == 1:
-                result.append("R")
-            else:
-                result.append("-")
-            cur_posn += 1
+    tern_list = to_tern(x)
+    while cur_posn < len(tern_list):
+        if tern_list[cur_posn] == 2:
+            result.append("L")
+            x += math.pow(3, cur_posn)
+            tern_list = to_tern(x)
+        elif tern_list[cur_posn] == 1:
+            result.append("R")
+        else:
+            result.append("-")
+        cur_posn += 1
     return result
